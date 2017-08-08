@@ -1,0 +1,14 @@
+<h1>Welcome to your ToDo Manager</h1>
+<p>Here are all your ToDo's</p>
+
+<% @tasks.each do |task| %>
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4 class="list-group-item-heading"><%= task.title %></h4>
+    <p class="list-group-item-text"><%= link_to "Show details", task_path(task) %></p>
+    <p class="list-group-item-text"><%= link_to "Edit task", edit_task_path(task) %></p>
+    <p class="list-group-item-text"><%= link_to "Delete task", task_path(task), method: :delete %></p>
+  </a>
+</div>
+<% end %>
+<p class="list-group-item-text"><%= link_to "Add new task", new_task_path %></p>
